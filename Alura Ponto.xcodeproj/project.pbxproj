@@ -21,6 +21,7 @@
 		03431DD32703BD2B00EB8D91 /* Alura_Ponto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03431DD12703BD2B00EB8D91 /* Alura_Ponto.xcdatamodeld */; };
 		034DC6FA270A26BF00156335 /* Secao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034DC6F9270A26BF00156335 /* Secao.swift */; };
 		03E880B22704FC4400033A34 /* Recibo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E880B12704FC4400033A34 /* Recibo.swift */; };
+		9E08D71C27A9E91B002E888E /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E08D71B27A9E91B002E888E /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		03431DD22703BD2B00EB8D91 /* Alura_Ponto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Alura_Ponto.xcdatamodel; sourceTree = "<group>"; };
 		034DC6F9270A26BF00156335 /* Secao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secao.swift; sourceTree = "<group>"; };
 		03E880B12704FC4400033A34 /* Recibo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recibo.swift; sourceTree = "<group>"; };
+		9E08D71B27A9E91B002E888E /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		030EF1D426FD1DE7000D3E42 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9E08D71B27A9E91B002E888E /* Camera.swift */,
 				034DC6F9270A26BF00156335 /* Secao.swift */,
 				03E880B12704FC4400033A34 /* Recibo.swift */,
 				03431DCB270290D200EB8D91 /* FormatadorDeData.swift */,
@@ -249,6 +252,7 @@
 				03431DD32703BD2B00EB8D91 /* Alura_Ponto.xcdatamodeld in Sources */,
 				030EF1A626FBD61C000D3E42 /* AppDelegate.swift in Sources */,
 				030EF1A826FBD61C000D3E42 /* SceneDelegate.swift in Sources */,
+				9E08D71C27A9E91B002E888E /* Camera.swift in Sources */,
 				03431DCC270290D200EB8D91 /* FormatadorDeData.swift in Sources */,
 				03E880B22704FC4400033A34 /* Recibo.swift in Sources */,
 				030EF1C726FBE529000D3E42 /* HomeViewController.swift in Sources */,
@@ -391,13 +395,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LF4G5DZZMF;
+				DEVELOPMENT_TEAM = N9DGLJU24L;
 				INFOPLIST_FILE = "Alura Ponto/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ac-apps.Alura-Ponto";
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.rogeriotavares.alura-ponto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -410,13 +414,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LF4G5DZZMF;
+				DEVELOPMENT_TEAM = N9DGLJU24L;
 				INFOPLIST_FILE = "Alura Ponto/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ac-apps.Alura-Ponto";
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.rogeriotavares.alura-ponto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

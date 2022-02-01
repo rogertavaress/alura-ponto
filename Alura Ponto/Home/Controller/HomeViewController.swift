@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     // MARK: - Attributes
     
     private var timer: Timer?
+    private lazy var camera = Camera()
+    private lazy var controladorDeImagem = UIImagePickerController()
     
     // MARK: - View life cycle
 
@@ -62,9 +64,24 @@ class HomeViewController: UIViewController {
         horarioLabel.text = horarioAtual
     }
     
+    func tentaAbrirCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            camera.delegate = self
+            camera.abrirCamera(self, controladorDeImagem)
+        }
+    }
+    
     // MARK: - IBActions
     
     @IBAction func registrarButton(_ sender: UIButton) {
-        // TO DO: Abrir câmera
+       tentaAbrirCamera()
+    }
+}
+
+extension HomeViewController: CameraDelegate {
+    func didSelectFoto(_ image: UIImage) {
+        let recibo = Recibo(status: false, data: Date(), foto: image)
+        
+        Secao.shared.addRecibos(recibo)
     }
 }
