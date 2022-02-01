@@ -24,6 +24,14 @@ class Camera: NSObject {
         
         controller.present(imagePicker, animated: true, completion: nil)
     }
+    
+    func abrirBibliotecaFotos(_ controller: UIViewController, _ imagePicker: UIImagePickerController) {
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        
+        controller.present(imagePicker, animated: true, completion: nil)
+    }
 }
 
 extension Camera: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
