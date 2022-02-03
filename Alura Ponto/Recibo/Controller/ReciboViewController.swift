@@ -30,6 +30,11 @@ class ReciboViewController: UIViewController {
         
         return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
     }()
+    var context: NSManagedObjectContext = {
+        let contexto = UIApplication.shared.delegate as! AppDelegate
+        
+        return contexto.persistentContainer.viewContext
+    }()
     
     // MARK: - View life cycle
 
@@ -89,7 +94,7 @@ class ReciboViewController: UIViewController {
 
 extension ReciboViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Secao.shared.listaDeRecibos.count
+        return buscador.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -97,7 +102,7 @@ extension ReciboViewController: UITableViewDataSource {
             fatalError("erro ao criar ReciboTableViewCell")
         }
         
-        let recibo = Secao.shared.listaDeRecibos[indexPath.row]
+        let recibo = buscador.fetchedObjects?[indexPath.row]
         cell.configuraCelula(recibo)
         cell.delegate = self
         cell.deletarButton.tag = indexPath.row
@@ -114,8 +119,8 @@ extension ReciboViewController: UITableViewDelegate {
 
 extension ReciboViewController: ReciboTableViewCellDelegate {
     func deletarRecibo(_ index: Int) {
-        Secao.shared.listaDeRecibos.remove(at: index)
-        reciboTableView.reloadData()
+        guard let recibo = buscador.fetchedObjects?[index] else { return }
+        recibo.deletar(context)
     }
 }
 
@@ -127,5 +132,16 @@ extension ReciboViewController: CameraDelegate {
 }
 
 extension ReciboViewController: NSFetchedResultsControllerDelegate {
-    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            if let indexPath = indexPath {
+                reciboTableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            break;
+        default:
+            reciboTableView.reloadData()
+            break;
+        }
+    }
 }
