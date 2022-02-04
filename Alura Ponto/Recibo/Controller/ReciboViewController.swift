@@ -47,6 +47,7 @@ class ReciboViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         getRecibos()
+        getFotoDePerfil()
         reciboTableView.reloadData()
     }
     
@@ -54,6 +55,12 @@ class ReciboViewController: UIViewController {
     
     func getRecibos() {
         Recibo.carregar(buscador)
+    }
+    
+    func getFotoDePerfil() {
+        if let imagemDePerfil = Perfil().carregarImagem() {
+            fotoPerfilImageView.image = imagemDePerfil
+        }
     }
     
     func configuraViewFoto() {
@@ -126,6 +133,7 @@ extension ReciboViewController: ReciboTableViewCellDelegate {
 
 extension ReciboViewController: CameraDelegate {
     func didSelectFoto(_ image: UIImage) {
+        Perfil().salvarImagem(image)
         escolhaFotoButton.isHidden = true
         fotoPerfilImageView.image = image
     }
